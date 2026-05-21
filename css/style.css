@@ -4,8 +4,70 @@
     box-sizing: border-box;
 }
 
-
-body {
-    background-color: pink;
+html, body {
+  height: 100%;
+  overflow-y: auto; /* Scrollen aktivieren */
 }
 
+
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+
+    background-color: #FFBB5E;
+    position: relative;
+    z-index: 10;
+    height: 80px; 
+}
+
+    
+
+/* LOGO */
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* DROPDOWN */
+.dropdown select {
+    padding: 15px 15px;
+
+    font-size: 15px;
+
+    border: 1px solid #4a3422;
+    border-radius: 10px;
+
+    background-color: #f5f1ea;
+    color: #4a3422;
+
+    cursor: pointer;
+
+    outline: none;
+
+    min-width: 280px;
+}
+
+
+.hero {
+  position: relative;
+  height: 100vh; /* oder gewünschte Höhe */
+  background: url("../img/Hero.png") no-repeat center center;
+  background-size: cover;
+}
+
+.hero img {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+body {
+
+  font-family: "Herculanum", sans-serif;
+}

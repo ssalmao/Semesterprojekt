@@ -1,5 +1,5 @@
 async function loadData() {
-    const url = 'https://currentuvindex.com/api/v1/uvi?latitude=40.6943&longitude=-73.9249'; // mit korrekter API-URL ersetzen
+    const url = 'https://api.sampleapis.com/avatar/episodes'; // mit korrekter API-URL ersetzen
     try {
         const response = await fetch(url);
         return await response.json();
