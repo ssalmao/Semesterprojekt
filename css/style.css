@@ -16,12 +16,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  overflow-y: auto; /* Scrollen aktivieren */
-}
-
-
 
 /* NAVBAR */
 .navbar {
@@ -50,11 +44,11 @@ html, body {
 
     font-size: 15px;
 
-    border: 1px solid #4a3422;
+    border: 1px solid var(--font);
     border-radius: 10px;
 
-    background-color: #f5f1ea;
-    color: #4a3422;
+    background-color: var(--bg-elements);
+    color: var(--font);
 
     cursor: pointer;
 
@@ -66,21 +60,12 @@ html, body {
 
 .hero {
   position: relative;
-  height: 100vh; 
-  background: url("../img/Hero.png") no-repeat center center;
+  height: calc(100vh-80px); 
   background-size: cover;
-}
-
-.hero img {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 
 body {
-
   font-family: "Herculanum", sans-serif;
 }
 

@@ -24,7 +24,7 @@ const seasonData = {
   seasonThree: {
     number: "BOOK THREE:",
     title: "FIRE",
-    animation: "animationen/aircopy.json",
+    animation: "animationen/fire.json",
     apiSeason: "3"
   }
 }; // hier werden zusätzliche Informationen gespeichert, die nicht aus der API zu lesen sind
