@@ -1,3 +1,4 @@
+
 :root{
 /* FARBPALETTE*/
 --nav: #FFBB5E; 
@@ -44,7 +45,7 @@ html, body {
 }
 
 /* DROPDOWN */
-.dropdown select {
+.seasonfilter {
     padding: 15px 15px;
 
     font-size: 15px;
@@ -65,7 +66,7 @@ html, body {
 
 .hero {
   position: relative;
-  height: 100vh; /* oder gewünschte Höhe */
+  height: 100vh; 
   background: url("../img/Hero.png") no-repeat center center;
   background-size: cover;
 }
@@ -81,4 +82,8 @@ html, body {
 body {
 
   font-family: "Herculanum", sans-serif;
+}
+
+.hidden {
+  display: none;
 }
