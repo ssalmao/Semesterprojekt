@@ -3,7 +3,8 @@ const seasonFilter = document.querySelector(".seasonfilter"); // dropdown menu
 const content = document.querySelector("#content"); // Behälter, dessen Inhalt geändert wird
 
 // API
-const apiUrl = "https://api.sampleapis.com/avatar/episodes";
+// const apiUrl = "https://api.sampleapis.com/avatar/episodes";
+const apiUrl = "../data.json"; // todo: diese Zeile löschen und URL wieder aktiv machen 
 
 let episodes = []; // hier werden alle Episoden aus der API abgespeichert, nun ist es noch leer, nach dem Laden wird es mit Inhalt gefüllt
 
@@ -54,7 +55,7 @@ function showSeason(selectedSeason) {
 
   // Episoden filtern
   const filteredEpisodes = episodes.filter(episode => {
-    return episode.season === season.apiSeason;
+    return episode.Season === season.apiSeason;
   });
 
  console.log("Gefilterte Episoden:", filteredEpisodes);
@@ -91,7 +92,7 @@ function showSeason(selectedSeason) {
 
   // Karte füllen
     card.innerHTML = `
-      <h2>${episode.numInSeason.toString().padStart(2, "0")}</h2>
+      <h2>${episode.NumInSeason.toString().padStart(2, "0")}</h2>
       <button>INFOS</button>
     `;
 
@@ -115,14 +116,14 @@ function showInfoBox(episode) {
     <div class="info-box">
       <button class="close-button">×</button>
 
-      <p>EPISODE ${episode.numInSeason}</p>
+      <p>EPISODE ${episode.NumInSeason}</p>
 
-      <h2>TITLE: "${episode.title}"</h2>
-      <p>FIRST AIRED ON: ${episode.originalAirDate}</p>
+      <h2>TITLE: "${episode.Title}"</h2>
+      <p>FIRST AIRED ON: ${episode.OriginalAirDate}</p>
 
-      <p>WRITTEN BY:<br>${episode.writtenBy}</p>
-      <p>DIRECTED BY:<br>${episode.directedBy}</p>
-      <p>ANIMATED BY:<br>${episode.animatedBy}</p>
+      <p>WRITTEN BY:<br>${episode.WrittenBy}</p>
+      <p>DIRECTED BY:<br>${episode.DirectedBy}</p>
+      <p>ANIMATED BY:<br>${episode.AnimatedBy}</p>
     </div>
   `;
 
