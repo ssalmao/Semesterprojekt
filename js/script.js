@@ -32,51 +32,51 @@ const seasonData = {
 async function loadEpisodes() {
   const response = await fetch(apiUrl);
   episodes = await response.json();
-
-  console.log("API geladen:");
-  console.log(episodes);
-  console.log("Erste Episode:");
-  console.log(episodes[0]);
 }
 
 function showStartPage() {
   content.innerHTML = `
-    <img src="img/Avatar_Aang.png" alt="Avatar points to dropdown menu">
+    <img src="img/Avatar Start.png" alt="Avatar points to dropdown menu">
   `;
 } // wenn man "select season" auswählt, wird Startseite wieder angezeigt
 
+const homeLogo = document.querySelector("#home-logo");
+
+homeLogo.addEventListener("click", () => {
+  seasonFilter.value = "";
+  showStartPage();
+}); // Navigation zu Startseite mit Klick auf Logo 
+
 // --> Staffel Overview anzeigen
 function showSeason(selectedSeason) {
-    console.log("Ausgewählte Season:", selectedSeason);
 
   // passende Staffel holen
   const season = seasonData[selectedSeason];
-  console.log("Season-Daten:", season);
 
   // Episoden filtern
   const filteredEpisodes = episodes.filter(episode => {
     return episode.Season === season.apiSeason;
   });
 
- console.log("Gefilterte Episoden:", filteredEpisodes);
-
   // Übertitel, season card und animation card werden eingeblendet
   content.innerHTML = `
     <img src="img/IM2_Uebertitel_Avatar 1.png" alt="Episodes Overview">
 
-    <div class="season-card">
-      <p>${season.number}</p>
-      <h2>${season.title}</h2>
-    </div>
+    <div class="season-header">
+      <div class="season-card">
+        <p>${season.number}</p>
+        <h2>${season.title}</h2>
+      </div>
 
-    <div class="animation-card">
-      <lottie-player 
-        src="${season.animation}" 
-        background="transparent" 
-        speed="1" 
-        loop 
-        autoplay>
-      </lottie-player>
+      <div class="animation-card">
+        <lottie-player 
+          src="${season.animation}" 
+          background="transparent" 
+          speed="1" 
+          loop 
+          autoplay>
+        </lottie-player>
+      </div>
     </div>
 
     <div class="episodes-container"></div>
@@ -88,7 +88,7 @@ function showSeason(selectedSeason) {
   // mit Schleife episode-cards kreiieren
   filteredEpisodes.forEach(episode => {
     const card = document.createElement("div");
-    card.classList.add("episode-card");
+    card.classList.add("episode-card", selectedSeason);
 
   // Karte füllen
     card.innerHTML = `
@@ -116,7 +116,7 @@ function showInfoBox(episode) {
     <div class="info-box">
       <button class="close-button">×</button>
 
-      <p>EPISODE ${episode.NumInSeason}</p>
+      <p>EPISODE ${episode.id}</p>
 
       <h2>TITLE: "${episode.Title}"</h2>
       <p>FIRST AIRED ON: ${episode.OriginalAirDate}</p>

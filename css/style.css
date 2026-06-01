@@ -1,74 +1,523 @@
+/* FARBPALETTE */
+:root {
+  --nav: #ffbb5e;
+  --hover: #b7e7fc;
 
-:root{
-/* FARBPALETTE*/
---nav: #FFBB5E; 
---hover: #B7E7FC;
---water: #234A95; 
---earth: #28683D; 
---fire: #B03320; 
---bg-elements: #FFF9F0;
---font: #1C150A; 
+  --water: #234a95;
+  --earth: #28683d;
+  --fire: #b03320;
+
+  --bg-elements: #fff9f0;
+  --font: #1c150a;
+
+  --card-radius: 22px;
+  --shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
+/* GRUNDEINSTELLUNGEN */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Herculanum", sans-serif;
+  color: var(--font);
+  background-color: var(--bg-elements);
+}
 
 /* NAVBAR */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 10px;
+  width: 100%;
+  height: 80px;
+  padding: 12px 40px;
 
-    background-color: var(--nav);
-    position: relative;
-    z-index: 10;
-    height: 80px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--nav);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
 }
-
-    
 
 /* LOGO */
 .logo img {
-    height: 50px;
-    width: auto;
+  height: 52px;
+  width: auto;
+  display: block;
 }
 
 /* DROPDOWN */
 .seasonfilter {
-    padding: 15px 15px;
+  min-width: 260px;
+  padding: 12px 18px;
 
-    font-size: 15px;
+  font-size: 15px;
+  font-family: inherit;
 
-    border: 1px solid var(--font);
-    border-radius: 10px;
+  border: 1px solid var(--font);
+  border-radius: 12px;
 
-    background-color: var(--bg-elements);
-    color: var(--font);
+  background-color: var(--bg-elements);
+  color: var(--font);
 
-    cursor: pointer;
-
-    outline: none;
-
-    min-width: 280px;
+  cursor: pointer;
+  outline: none;
 }
 
+.seasonfilter:hover {
+  background-color: var(--hover);
+}
 
+/* HERO-HINTERGRUND */
 .hero {
+  position: fixed;
+  top: 80px;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.hero img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* HAUPTINHALT */
+main {
   position: relative;
-  height: calc(100vh-80px); 
-  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+#content {
+  position: relative;
+  z-index: 5;
+
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 36px 40px 40px;
+}
+
+/* STARTSEITE AVATAR */
+#content > img[alt*="Avatar"] {
+  position: absolute;
+  right: 33%;
+  bottom: 30%;
+
+  max-height: 82%;
+  max-width: 48%;
+
+  object-fit: contain;
+}
+
+/* ÜBERTITEL */
+#content > img[alt="Episodes Overview"] {
+  width: min(460px, 75vw);
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 28px;
+}
+
+.season-header {
+  width: min(850px, 90vw);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  margin-bottom: 28px;
+}
+
+/* SEASON CARD */
+.season-card {
+  width: 360px;
+  min-height: 120px;
+  margin-bottom: 0;
+
+  border-radius: var(--card-radius);
+  background-color: var(--bg-elements);
+  opacity: 75%;
+  box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.season-card p {
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.season-card h2 {
+  font-size: 42px;
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+
+/* ANIMATION CARD */
+.animation-card {
+  width: 130px;
+  height: 120px;
+
+  border-radius: var(--card-radius);
+  background-color: var(--bg-elements);
+  opacity: 75%;
+  box-shadow: var(--shadow);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation-card lottie-player {
+  width: 90px;
+  height: 90px;
+}
+
+/* EPISODEN SCROLL-BEREICH */
+.episodes-container {
+  width: min(850px, 90vw);
+  max-height: calc(100vh - 360px);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 75px;
+
+  padding: 25px 25px 40px;
+}
+
+/* Scrollbar dezenter */
+.episodes-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.episodes-container::-webkit-scrollbar-thumb {
+  background-color: rgba(28, 21, 10, 0.45);
+  border-radius: 20px;
+}
+
+.episodes-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* EPISODEN KARTEN */
+.episode-card {
+  aspect-ratio: 1 / 1;
+  border-radius: 40px;
+  box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--font);
+  opacity: 85%;
+}
+
+/* Farben je nach Staffel */
+.season-card h2 {
+  text-transform: uppercase;
+}
+ 
+.episode-card.seasonOne {
+  background-color: var(--water);
+}
+
+.episode-card.seasonTwo {
+  background-color: var(--earth);
+}
+
+.episode-card.seasonThree {
+  background-color: var(--fire);
+}
+
+body:has(.season-card h2)::after {
+  content: "";
 }
 
 
-body {
-  font-family: "Herculanum", sans-serif;
+/* Buttons */
+.episode-card h2 {
+  font-size: 85px;
+  font-weight: normal;
+  margin-bottom: 8px;
 }
 
+.episode-card button {
+  padding: 12px 26px;
+
+  border: none;
+  border-radius: 999px;
+
+  background-color: var(--bg-elements);
+  color: var(--font);
+  transition: color 0.2s ease;
+
+  font-family: inherit;
+  font-size: 30px;
+  letter-spacing: 3px;
+
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.28);
+}
+
+.episode-card button:hover {
+  background-color: var(--hover);
+}
+
+/* INFO OVERLAY */
+.info-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 50;
+
+  background-color: rgba(28, 21, 10, 0.55);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
+}
+
+/* INFO BOX */
+.info-box {
+  position: relative;
+
+  width: min(520px, 90vw);
+  min-height: 540px;
+
+  padding: 70px 48px 48px;
+
+  border-radius: 34px;
+  background-color: var(--bg-elements);
+  box-shadow: var(--shadow);
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+}
+
+.info-box p {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.info-box h2 {
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: normal;
+}
+
+/* SCHLIESSEN BUTTON */
+.close-button {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+
+  border: none;
+  background: none;
+
+  font-size: 42px;
+  line-height: 1;
+
+  color: var(--font);
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: var(--hover);
+}
+
+/* VERSTECKTE ELEMENTE */
 .hidden {
   display: none;
+}
+
+/* RESPONSIVENESS */
+/* TABLET */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 12px 28px;
+  }
+
+  .episodes-container {
+    grid-template-columns: repeat(2, 1fr);
+    width: min(560px, 90vw);
+  }
+
+  .animation-card {
+    right: 10%;
+  }
+
+  #content > img[alt*="Avatar"] {
+    right: 30%;
+    bottom: 30%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .navbar {
+    height: 72px;
+    padding: 10px 16px;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .seasonfilter {
+    min-width: 150px;
+    padding: 8px 10px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  .hero {
+    top: 72px;
+    height: calc(100vh - 72px);
+  }
+
+  #content {
+    height: calc(100vh - 72px);
+    margin-top: 72px;
+    padding: 32px 18px 24px;
+  }
+
+  #content > img[alt="Episodes Overview"] {
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 22px;
+  }
+
+  #content > img[alt*="Avatar"] {
+    right: 30%;
+    bottom: 30%;
+
+    max-width: 95%;
+    max-height: 50%;
+  }
+
+  .season-header {
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .season-card {
+    width: 62%;
+    min-height: 72px;
+    margin-right: 0;
+    margin-bottom: 0;
+    border-radius: 20px;
+  }
+
+  .season-card p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .season-card h2 {
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+
+  .animation-card {
+    width: 70px;
+    height: 72px;
+    position: static;
+    border-radius: 20px;
+  }
+
+  .animation-card lottie-player {
+    width: 54px;
+    height: 54px;
+  }
+
+  .episodes-container {
+    width: 100%;
+    max-height: calc(100vh - 265px);
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+
+    padding: 6px 20px 42px;
+  }
+
+  .episode-card {
+    border-radius: 20px;
+  }
+
+  .episode-card h2 {
+    font-size: 60px;
+    margin-bottom: 8px;
+  }
+
+  .episode-card button {
+    padding: 9px 18px;
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  .info-box {
+    width: 86vw;
+    min-height: 62vh;
+
+    padding: 58px 28px 34px;
+
+    border-radius: 28px;
+    gap: 18px;
+  }
+
+  .info-box p {
+    font-size: 11px;
+  }
+
+  .info-box h2 {
+    font-size: 15px;
+  }
+
+  .close-button {
+    top: 18px;
+    right: 22px;
+    font-size: 34px;
+  }
 }
