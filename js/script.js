@@ -36,7 +36,7 @@ async function loadEpisodes() {
 
 function showStartPage() {
   content.innerHTML = `
-    <img src="img/Avatar Start.png" alt="Avatar points to dropdown menu">
+    <img src="img/Avatar_Aang.png" alt="Avatar points to dropdown menu">
   `;
 } // wenn man "select season" auswählt, wird Startseite wieder angezeigt
 
@@ -60,7 +60,7 @@ function showSeason(selectedSeason) {
 
   // Übertitel, season card und animation card werden eingeblendet
   content.innerHTML = `
-    <img src="img/IM2_Uebertitel_Avatar 1.png" alt="Episodes Overview">
+    <img src="img/Uebertitel_Episodes_Overview.png" alt="Episodes Overview">
 
     <div class="season-header">
       <div class="season-card">
