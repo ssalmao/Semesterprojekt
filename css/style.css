@@ -29,7 +29,7 @@ body {
 }
 
 body {
-  font-family: "Herculanum", sans-serif;
+  font-family: "herculanum-lt-pro", sans-serif;
   color: var(--font);
   background-color: var(--bg-elements);
 }
