@@ -3,8 +3,8 @@ const seasonFilter = document.querySelector(".seasonfilter"); // dropdown menu
 const content = document.querySelector("#content"); // Behälter, dessen Inhalt geändert wird
 
 // API
-// const apiUrl = "https://api.sampleapis.com/avatar/episodes";
-const apiUrl = "../data.json"; // todo: diese Zeile löschen und URL wieder aktiv machen 
+const apiUrl = "https://api.sampleapis.com/avatar/episodes";
+// const apiUrl = "../data.json"; // diese Zeile wurde für den Arbeitsprozess verwendet, um Daten der API ohne Fehlermeldung testen zu können 
 
 let episodes = []; // hier werden alle Episoden aus der API abgespeichert, nun ist es noch leer, nach dem Laden wird es mit Inhalt gefüllt
 
