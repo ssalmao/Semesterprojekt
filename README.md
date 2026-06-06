@@ -8,7 +8,7 @@ Die Arbeit im Duo lief grundsätzlich gut, wir konnten die Arbeit zwischen uns a
 
 Schwierigkeiten hatten wir vor allem mit den Lottiefiles. Wegen der Begrenzung von 5 Dateien, mussten wir mehrere Accounts erstellen und brauchten Hilfe beim Entfernen des Wasserzeichens bei den Animationen. In Zukunft würden wir nichtmehr mit diesem Tool arbeiten.
 
-Eine zweite Schwierigkeit bereitete uns die API selber. Obwohl bei unserer API 100% Zuverlässigkeit angegeben war, bekamen wir beim Testen der Webseite immer wieder die Fehlermeldung: "Too many requests". Daraufhin mussten wir immer wieder fünf Minuten (oder länger) warten, bis wir wieder auf die Daten zugreifen konnten. Die Dozenten haben uns dann empfohlen, mit einer data.json Datei zu arbeiten, damit wir die Webseite und die Daten der API problemlos testen können. Das haben wir aber am Schluss wieder rückgängig gemacht, indem wir die Daten wieder mit der API-URL verknüpft haben.
+Eine zweite Schwierigkeit bereitete uns die API selber. Obwohl bei unserer API 100% Zuverlässigkeit angegeben war, bekamen wir beim Testen der Webseite immer wieder die Fehlermeldung: "Too many requests". Daraufhin mussten wir immer wieder fünf Minuten (oder länger) warten, bis wir wieder auf die Daten zugreifen konnten. Die Dozenten haben uns dann empfohlen, mit einer data.json Datei zu arbeiten, damit wir die Webseite und die Daten der API problemlos testen können. Das haben wir aber am Schluss wieder rückgängig gemacht, indem wir das Javascript wieder mit der API-URL verknüpft haben.
 
 ### Figma vs. Endprodukt:
 
